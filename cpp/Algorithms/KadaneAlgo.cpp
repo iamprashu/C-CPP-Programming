@@ -15,7 +15,6 @@ void KadaneAlgo(vector<int>nums){
             sum = 0;
         }
     }
-
     cout<<answer;
 }
 

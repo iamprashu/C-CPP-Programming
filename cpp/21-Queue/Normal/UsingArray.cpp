@@ -45,7 +45,7 @@ class Queue{
         }else{
             return 0;
         }
-    }
+    } 
 
     void Pop(){
         if(isEmpty()){
