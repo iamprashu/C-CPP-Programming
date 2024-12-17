@@ -67,6 +67,11 @@ void Insert(int data,int pos, Node* &head){
     {
         Node* temp = head;
         for(int i=1; i<pos-1; i++){
+            if(temp == NULL){
+                cout<<"Out Of Bound Position\n";
+                delete newNode;
+                return;
+            }
             temp = temp->next;
         }
         newNode->next = temp->next;
@@ -82,6 +87,8 @@ int main(){
     Insert(13,2,head);
     Print(head);
     Insert(14,3,head);
+    Print(head);
+    Insert(314,13,head);
     Print(head);
     GetElement(14,head) ? cout<<"Yes\n" : cout<<"No\n";
     Delete(3,head);
