@@ -1,33 +1,32 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-void BubbleSort(int arr[], int size){
-    
-    for(int i=0; i<size-1; i++){
+void BubbleSort(vector<int>& arr){
+    int n = arr.size();
 
-        for(int j=0; j<size-i-1; j++){
+    bool swapped;
 
-            if(arr[j] > arr[j+1]){ //checking the element is asap
-                //swaping elements;
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+    for(int i=0; i<n; i++){
+        swapped = false;
+        for(int j=0; j<n-i-1; j++){
+            //if current element is greater than next element
+            if(arr[j] > arr[j+1]){
+                swap(arr[j],arr[j+1]);
+                swapped = true;
             }
+        }
+        // if the above inner loop no swapping done means the whole array is sorted
+        if(!swapped){
+            break;
         }
     }
 }
 
 int main(){
-    int arr[]={3,2,6,7,0,1};
-    int size = sizeof(arr)/sizeof(arr[0]);
-
-    BubbleSort(arr,size);
-
-    //Printing after sorting
-
-    for(auto nums:arr){
-        cout<<nums<<" ";
+    vector<int>arr={1,7,2,0,3,9};
+    BubbleSort(arr);
+    for(auto element:arr){
+        cout<<element<<" ";
     }
-
     return 0;
 }
