@@ -1,34 +1,25 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
+void SelectionSort(vector<int>&arr){
+        for(int i=0; i<arr.size()-1; i++){
+            int minIndex = i;
+            for(int j = i+1; j<arr.size(); j++){
+                if(arr[j] < arr[minIndex]){
+                    minIndex = j;
+                }
+            }
+            swap(arr[i],arr[minIndex]);
+        }
+}
 
 int main(){
-    int arr[]={-1,2,3,4,5,0,9,120,-1200};
-    int size = sizeof(arr)/sizeof(arr[0]);
+    vector<int>arr={0,2,1,3,4,9,2,2,10,2};
+    SelectionSort(arr);
 
-    for(int i=0; i<size; i++){
-
-        int MiniMumIndex = i;
-
-        for(int j=i+1; j<size; j++){
-
-            if(arr[j]<arr[MiniMumIndex]){
-                MiniMumIndex = j;
-            }
-        }
-        //after finding the minimum element swaping it
-
-        if(MiniMumIndex != i){
-            //if the minimum index is not equal to the ith index
-            //that means we have the minimum element for that position
-            int temp = arr[i];
-            arr[i] = arr[MiniMumIndex];
-            arr[MiniMumIndex] =  temp;
-        }
-    }
-
-    for(auto element: arr){
+    for(auto element:arr){
         cout<<element<<" ";
     }
+    
     return 0;
 }
